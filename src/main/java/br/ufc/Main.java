@@ -12,13 +12,17 @@ public class Main {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		
-		Pessoa p = new Pessoa();
-		Pessoa p1 = new Pessoa();
+
 		
-		p.setId(200);
-		em.persist(p);
-		p1.setId(10);
-		em.persist(p1);
+		Funcionario f = new Funcionario();
+		
+		f.setCodigo(3);
+		f.setCargo("Dono");
+		f.setNome("Trufinha");
+		
+		em.persist(f);
+		
+
 		
 		
 		
