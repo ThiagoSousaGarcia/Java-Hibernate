@@ -1,4 +1,4 @@
-package br.ufc;
+package br.ufc.model;
 
 import java.util.Date;
 import java.util.LinkedList;

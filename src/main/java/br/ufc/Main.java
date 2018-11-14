@@ -4,6 +4,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import br.ufc.model.Funcionario;
+import br.ufc.model.Produto;
+import br.ufc.model.Venda;
+
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
@@ -74,6 +80,15 @@ public class Main {
 		em.persist(v1);
 		
 		tx.commit();
+		
+		/*Consultas SQL*/
+		Query consultaproduto = em.createQuery("Select (p.nome)"+ "from Produto p " + "where p.codigo = :codigo ").setParameter("codigo",p1.getCodigo());
+		List<String> nomes_produtos = consultaproduto.getResultList();
+		
+		for(String produto:nomes_produtos) {
+			System.out.println("O nome do produto é "+ produto);
+		}
+		
 		em.close();
 		emf.close();
 	}
