@@ -1,12 +1,17 @@
 package br.ufc;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Funcionario {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq_gen")
+	@SequenceGenerator(name = "users_seq_gen", sequenceName = "users_id_seq")
 	private int codigo;
 	
 	private String nome;
